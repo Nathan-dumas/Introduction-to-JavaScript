@@ -12,7 +12,7 @@ console.log(age > votingAge);
 
 let name = 'Nathan';
 let number = 3;
-if(number < 4){
+if (number < 4) {
     name = 'Nate'
 };
 console.log(name);
@@ -30,7 +30,7 @@ console.log(Number(year));
 
 let multiply = (num1, num2) => num1 * num2;
 
-console.log(multiply(3,8));
+console.log(multiply(3, 8));
 
 
 
@@ -60,9 +60,25 @@ console.log(ageInDogYears(25));
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
-let dogFeeder = 
 
+let dogFeeder = function (dogAge, dogWeight) {
+    if (dogAge >= 1 && dogWeight <= 5) {
+        console.log('Dog should eat ' + dogWeight * .05 + ' pounds of food per day');
+    } else if (dogAge >= 1 && dogWeight > 5 && dogWeight < 11) {
+        console.log('Dog should eat ' + dogWeight * .04 + ' pounds of food per day');
+    } else if (dogAge >= 1 && dogWeight > 10 && dogWeight < 16) {
+        console.log('Dog should eat ' + dogWeight * .03 + ' pounds of food per day');
+    } else if (dogAge >= 1 && dogWeight > 15) {
+        console.log('Dog should eat ' + dogWeight * .02 + ' pounds of food per day');
+    } else if (dogAge >= 0.166667 && dogAge <= 0.333334) {
+        console.log('Puppy should eat ' + dogWeight * .10 + ' pounds of food per day')
+    } else if (dogAge > 0.333334 && dogAge < 0.583334) {
+        console.log('Puppy should eat ' + dogWeight * .05 + ' pounds of food per day')
+    } else if (dogAge > 0.583334 && dogAge < 1) {
+        console.log('Puppy should eat ' + dogWeight * .04 + ' pounds of food per day')
+    }
+};
+dogFeeder(1, 15);
 
 
 /************************************************************** Task 4 **************************************************************/
@@ -71,21 +87,59 @@ let dogFeeder =
 // it should return you won or you lost based on the rules of the game (you may need to look up the rules if you have not played before)
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
+rock = 0;
+paper = 1;
+scissors = 2;
 
-  
-  
+let rockPaperScissors = function (shoot) {
+    let hand = Math.floor(Math.random() * 3);
+    if (hand === 0 && shoot === rock) {
+        return "It's a tie!";
+    }
+    else if (hand === 0 && shoot === paper) {
+        return "Winner!";
+    }
+    else if (hand === 0 && shoot === scissors) {
+        return "Loser!";
+    }
+    else if (hand === 1 && shoot === rock) {
+        return "Loser!";
+    }
+    else if (hand === 1 && shoot === paper) {
+        return "It's a tie!";
+    }
+    else if (hand === 1 && shoot === scissors) {
+        return "Winner!";
+    }
+    else if (hand === 2 && shoot === rock) {
+        return "Winner!";
+    }
+    else if (hand === 2 && shoot === paper) {
+        return "Loser!";
+    }
+    else if (hand === 2 && shoot === scissors) {
+        return "It's a tie!";
+    }
+}
+console.log(rockPaperScissors(rock));
+
+
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
+const kToM = (k) => k / 1.609;
 
-
-
+console.log(kToM(9));
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
 
+
+
+const feetToCm = (f) => f * 30.48;
+
+console.log(feetToCm(10));
 
 
 
@@ -93,9 +147,14 @@ let dogFeeder =
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
 
 
+function annoyingSong(bottles) {
+    for (let i = bottles; i > 0; i--) {
+        console.log(`${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`)
+    }
+};
+console.log(annoyingSong(99));
 
 
 /************************************************************** Task 7 **************************************************************/
@@ -106,17 +165,28 @@ let dogFeeder =
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
 
-  
-  
+const grades = function(grade){
+    if(grade >= 90){
+        return 'Grade A!';
+    }else if(grade >= 80){
+        return 'Grade B!';
+    }else if(grade >= 70){
+        return 'Grade C!';
+    }else if(grade >= 60){
+        return 'Grade D!';
+    }else if(grade < 60){
+        return 'You failed!';
+    }
+};
+console.log(grades(55))
+
+
 
 /************************************************************** Stretch **************************************************************/
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
-
-
 
 
 
